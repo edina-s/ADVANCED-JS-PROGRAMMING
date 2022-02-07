@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototypes</title>
+</head>
+
+<body>
+
+
+
+
+
+    <script>
+
+        function Car(make, model, weight, color) {
+            this.make = make;
+            this.model = model;
+            this.weight = weight;
+            this.color = color;
+
+            this.startEngine = function () {
+                return "Engine of " + this.make + " " + this.model + " started."
+            }
+
+
+        }
+
+
+        Car.prototype.getName = function () {
+            return this.make + " " + this.model;
+        }
+
+        Car.prototype.getInfo = function () {
+            return "Make: " + this.make + "\n" +
+                "Model: " + this.model + "\n" +
+                "Weight: " + this.weight + "\n" +
+                "Color: " + this.color
+        }
+
+        let car1 = new Car("Subary", "Legacy", 1560, "black");
+
+        let car1Name = car1.getName();
+        let car1Info = car1.getInfo();
+
+        console.log(car1Name);
+        console.log(car1Info);
+
+        //Convertible
+
+        function Convertible(make, model, weight, color, roofType) {
+            Car.call(this, make, model, weight, color);
+            this.roofType = roofType;
+
+
+        }
+
+        Convertible.prototype = Object.create(Car.prototype);
+        Convertible.prototype.constructor = Convertible;
+
+        //redefinisanje metoda - polimorfizam
+        Convertible.prototype.getInfo = function () {
+            return "Make: " + this.make + "\n" +
+                "Model: " + this.model + "\n" +
+                "Weight: " + this.weight + "\n" +
+                "Color: " + this.color + "\n" +
+                "Roof Type: " + this.roofType
+        }
+
+
+        // var subaryLegacy = new Car("Subary", "Legacy", 1560, "black");
+
+        // console.log(Object.getPrototypeOf(subaryLegacy)); 
+
+        // console.log(Object._porto_ === Function.prototype);
+
+        let convertabile1 = new Convertible("Honda", "S2000", 1274, "silver", "Vinyl, soft-top");
+
+        let convertabile1Name = convertabile1.getName();
+        let convertabile1Info = convertabile1.getInfo();
+
+        console.log(convertabile1Name);
+        console.log(convertabile1Info);
+
+        //pickup automobili
+
+        function Pickup(make, model, weight, color, cargoVolume) {
+            Car.call(this, make, model, weight, color);
+            this.cargoVolume = cargoVolume;
+
+        }
+        Pickup.prototype = Object.create(Car.prototype);
+        Pickup.prototype.constructor = Pickup;
+
+        Pickup.prototype.getInfo = function () {
+            return Car.prototype.getInfo.call(this) + "\n" +
+                "Cargo volume: " + this.cargoVolume
+        }
+
+        let pickup1 = new Pickup("Ford", "F-150", 1846, "silver", 63)
+
+        let pickup1Name = pickup1.getName();
+        let pickup1Info = pickup1.getInfo();
+
+        console.log(pickup1Name);
+        console.log(pickup1Info);
+
+        // Chevrolet
+
+        function Chevrolet(make, model, weight, color, windows) {
+
+            Car.call(this, make, model, weight, color)
+            this.windows = windows;
+
+        }
+
+        Chevrolet.prototype = Object.create(Car.prototype);
+        Chevrolet.prototype.constructor = Chevrolet;
+
+        Chevrolet.prototype.getInfo = function () {
+            return Car.prototype.getInfo.call(this)+ "\n" +
+                "Windows color: " + this.windows
+        }
+
+
+        let chevroletCruze = new Chevrolet("Chevrolet", "Cruze", 1200, "white", "black");
+
+        let cruzeName = chevroletCruze.getName();
+        let cruzeInfo = chevroletCruze.getInfo();
+
+        // console.log(cruzeName);
+        // console.log(cruzeInfo);
+
+        console.log(Object.prototype.__proto__);
+
+    </script>
+</body>
+
+</html>

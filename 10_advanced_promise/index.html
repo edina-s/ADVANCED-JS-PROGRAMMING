@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Promise</title>
+</head>
+
+<body>
+
+    <script>
+        /* let promise = new Promise(function(res, rej) {
+             res(4);
+ 
+         });
+ 
+         let promise2 = promise.then(function(value){
+             console.log("Promise value: " +value);
+             return value*value;
+         }); 
+ 
+         promise2.then(function(value){
+             console.log("Promise2 value: " +value)
+         });*/
+
+        new Promise(function (res, rej) {
+            res(4);
+
+        }).then((value) => {
+
+            console.log("Promise value: " + value);
+
+            return new Promise(function (rej, res) {
+                setTimeout((value) => value * value, 2000);
+            });
+
+
+
+        }).then((value) => {
+            console.log("Promise2 value: " + value)
+        });
+
+
+    </script>
+</body>
+
+</html>

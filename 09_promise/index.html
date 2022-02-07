@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+        window.addEventListener('load', function () {
+
+            console.log("Web page has been loaded!");
+
+            document.getElementById("my-button").addEventListener('click', function () {
+
+                window.addEventListener('load', function () {
+
+                    setInterval(function () {
+
+                        myHeading.style.color = myHeading.style.color == 'black' ? 'blue' : 'red';
+
+                    }, 500);
+
+                });
+            });
+
+        });
+        */
+
+        // function successCallback(result) {
+        //     console.log("Async operation successfully finished. Result is:" + result);
+        // }
+
+        // function failureCallback(error) {
+        //     console.error("Async operation failed. Error is: " + error);
+        // }
+
+        // doSomethingAsync(successCallback, failureCallback);
+
+        // let promise = doSomethingAsync();
+        // promise.then(successCallback, failureCallback);
+
+
+        /*var promise = new Promise(function(resolve, reject){
+            let result = Math.random() * 10;
+
+            resolve(result);
+            resolve("Unknown error. ");
+
+        });
+
+        promise.then(function(result) {
+            console.log("Operation compleed successfully. Result is: " + result);
+
+        }, function(error) {
+            console.log("Promise failed. " + error);
+
+        });
+
+        console.log("Hello to everyone. ");*/
+
+        function delay(time) {
+
+        
+
+            return new Promise(function(resolve, reject){
+
+                setTimeout(resolve, time);
+
+            });
+
+
+        }
+
+        delay(4000).then(function(){
+            console.log("4 seconds passed...")
+        })
+    </script>
+</body>
+
+</html>

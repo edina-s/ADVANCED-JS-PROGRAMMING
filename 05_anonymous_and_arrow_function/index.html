@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Anonymous And Array Function</title>
+</head>
+
+<body>
+    <script>
+
+        /*var a = function(x) {
+            return x*x;
+        }
+
+        console.log(a(5));*/
+
+        /*Prosleđivanje jedne funkcije drugoj*/
+
+        // let names = ["John", "Ben", "Ana", "David"];
+        // function sayHelloToMany(names, sayHelloToOne) {
+        //     for (let i = 0; i < names.length; i++) {
+        //         sayHelloToOne(names[i]);
+
+        //     }
+        // }
+        // sayHelloToMany(names, function(name) {
+        //     console.log("Hello " + name )
+
+        // });
+
+        /*Arrow funkcije*/
+
+        // var a = x => { return x * x};
+        /*ako prihvata samo jedan ulazni parametar, zagrade mozemo izostaviti*/
+        // var a = x => x * x;
+
+        // console.log(a(5));
+
+        /*Arrow funkcija bez ulaznih parametara, sa jednom povratnom vrednošću:*/
+
+        // var a = () => "Hello World";
+
+        /*Arrow funkcija sa jednim ulaznim parametrom, bez povratne vrednosti:*/
+
+
+        // var a = (name) => { console.log("Hello " + name) };
+
+
+        // var a = name => { console.log("Hello " + name) };
+
+        /*Arrow funkcija sa dva ulazna parametra i jednom povratnom vrednošću:*/
+
+
+        // var a = (x, y) => x * y;
+
+
+        /*Arrow funkcija sa više naredbi unutar tela:*/
+
+
+        // var a = (x, y) => {
+        //     x++;
+        //     return y + x;
+        // }
+
+        /*Primer prosleđivanja Arrow funkcije drugoj funkciji*/
+
+        // let names = ["John", "Ben", "Ana", "David"];
+
+        // function sayHelloToMany(names, sayHelloToOne) {
+        //     for (let i = 0; i < names.length; i++) {
+        //         sayHelloToOne(names[i]);
+        //     }
+        // }
+
+        // sayHelloToMany(names, name => { console.log("Hello " + name) });
+
+
+        function Student() {
+            this.courses = [];
+
+            this.addCourses = function(courses){
+
+                // var self = this;
+
+                courses.forEach((value, index) => {
+                        this.courses[index] = value;
+                    
+                });
+            }
+
+        }
+
+        var s = new Student();
+        s.addCourses(["Math", "Geo", "History"]);
+
+        console.log(s.courses);
+
+
+    </script>
+</body>
+
+</html>

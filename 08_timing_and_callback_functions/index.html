@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timing And Callback Function</title>
+    <style>
+
+        #my-button {
+            width: 200px;
+            height: 40px;
+            color: white;
+            background-color: teal;
+            border-radius: 4px;
+            line-height: 40px;
+            text-align: center;
+            font-family: sans-serif;
+        }
+         
+        #my-button:hover{
+            background-color: rgb(30, 109, 109);
+            cursor: pointer;
+            font-weight: bold;
+        }
+        </style>
+</head>
+<body>
+    <button id="my-button">Click me</button>
+
+    <h1 id="heading">setInterval()</h1>
+ 
+        <script>
+
+            /* Primer asinhronog izvršavanja u JavaScriptu
+            var myButton = document.getElementById("my-button");
+ 
+            myButton.addEventListener("click", function() {
+ 
+                alert("Hello from modal window");
+ 
+                console.log("Hello from statement after alert() method.");
+ 
+            }); */
+
+
+            /* Primer asinhronog izvršavanja u JavaScriptu 
+
+            var myButton = document.getElementById("my-button");
+ 
+            myButton.addEventListener("click", function () {
+ 
+                alert("Hello from modal window");
+ 
+                console.log("Hello from statement after alert() method.");
+ 
+            });
+ 
+            console.log("Hello from some other code after addEventListener() method");
+*/
+            /* Tajming funkcija - setTimeout(function, delay, arg);
+
+            console.log("Statement 1");
+            var timeout1 = setTimeout(function() { console.log("Statement 2")}, 2000);
+
+            console.log("Statement 3") */
+
+            /* Otkazivanje timeouta */
+
+            // clearTimeout(timeout1); 
+
+            /* Primer – otkazivanje jednog timeouta od strane drugog  
+
+            console.log("Statement 1");
+ 
+            var timeout1 = setTimeout(function () {
+                console.log("Statement 2");
+            }, 2000);
+ 
+            var timeout2 = setTimeout(function (timeout) {
+                clearTimeout(timeout);
+                console.log("Timeout 1 is cleared...");
+            }, 1000, timeout1);
+ 
+            console.log("Statement 3");*/
+
+            /* Tajming funkcija - setInterval(function, delay, arg);*/
+
+            let heading = document.getElementById("heading");
+            function changeColor(elem) {
+                elem.style.color = elem.style.color == 'red' ? 'blue' : 'red';
+            }
+
+            let interval1= setInterval(changeColor, 500, heading);
+
+            setTimeout(function(intervalId){
+                clearInterval(intervalId) }, 5000, interval1
+           );
+           
+
+        </script>
+</body>
+</html>

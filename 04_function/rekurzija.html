@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funkcija koja poziva samu sebe – rekurzija</title>
+</head>
+
+<body>
+    <script>
+
+        // function countdown(start) {
+        //     for (let i = start; i >= 0; i--) {
+        //         console.log(i);
+        //     }
+        // }
+
+        // function countdown(start) {
+        //     if (start < 0) {
+        //         return;
+        //     }
+        //     console.log(start);
+        //     countdown(--start);
+        // }
+        // countdown(4);
+
+        /* Primer – funkcija za sortiranje niza koja se zasniva na rekurziji*/
+
+        function sort(array) {
+            let temp;
+            let sorted = true;
+
+            for (let i = 0; i < array.length; i++) {
+                if(array[i] > array[i + 1]) {
+                    temp = array[i];
+                    array[i] = array[i + 1];
+                    array[i + 1] = temp;
+                    sorted = false;
+
+                }
+                
+            }
+
+            if(!sorted) {
+                sort(array);
+            }
+
+            return array;
+
+        }
+
+        let numArray = [18, 3, 8, 34, 12, 0, 3];
+
+        numArray = sort(numArray);
+        
+        console.log(numArray);
+
+
+    </script>
+</body>
+
+</html>

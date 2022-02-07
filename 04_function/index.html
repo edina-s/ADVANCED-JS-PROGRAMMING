@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        /*Osnovni način za kreiranje i pozivanje funkcija*/
+
+        // function calculateRectArea(a, b) {
+        //     return a * b;
+        // }
+
+        // calculateRectArea(5, 10);
+
+        // var result = calculateRectArea(5, 10);
+        // document.write(result);
+
+
+        /*Primer funkcije sa jednim ulaznim parametrom, bez povratne vrednosti:*/
+
+        // function sayHello(name) {
+        //     console.log("Hello " + name);
+        // }
+        // sayHello("John");
+
+        /*Primer funkcije bez ulaznih parametara i bez povratne vrednosti*/
+
+        // function sayHelloWorld() {
+        //     console.log("Hello World");
+        // }
+
+
+
+        function sum() {
+            let returnValue = 0;
+
+            for (let i = 0; i < arguments.length; i++) {
+                returnValue += arguments[i];
+
+            }
+
+            return returnValue;
+
+        }
+
+        let sumResult = sum(10, 15, 15, 20, 20, 10, 5);
+        console.log(sumResult);
+
+    </script>
+</body>
+
+</html>
